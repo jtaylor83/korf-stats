@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import type { Match } from '../model';
 import { Tracker } from '../../tracking/components/Tracker';
-import { players_dundee_1 as players } from '../../players/data/Players';
+import { players_dundee_1, players_dundee_2 } from '../../players/data/Players';
 import { useStopwatch } from 'react-timer-hook';
 import './MatchSetup.css';
 import type { MatchEvent } from '../../tracking/model';
@@ -21,6 +21,7 @@ export function MatchSetup() {
             return;
         }
         console.log(e)
+        const players = team === 'Dundee 1' ? players_dundee_1 : players_dundee_2
         // Implementation for starting the match
         const newMatch: Match = {
             id: '1',
@@ -65,7 +66,7 @@ export function MatchSetup() {
             {!isRunning && (<button onClick={start}>Resume</button>)}
          <Tracker match={match} minutes={minutes} seconds={seconds} team={team} handleEndMatch={(results) => handleEndMatch(results)} />
          </>)}
-         {results.length > 0 && (<Results results={results} players={players} />)}
+         {results.length > 0 && (<Results results={results} players={team === 'Dundee 1' ? players_dundee_1 : players_dundee_2} />)}
     </>    
     );
 }
