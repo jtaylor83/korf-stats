@@ -1,0 +1,154 @@
+.track-event-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1rem;
+
+  background: rgb(15 23 42 / 60%);
+
+  /* This gives you the "unfocused" background */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.track-event-modal {
+  width: min(100%, 660px);
+
+  padding: 1.25rem;
+
+  background: #ffffff;
+  color: #172033;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 24px 48px rgb(0 0 0 / 25%),
+    0 4px 12px rgb(0 0 0 / 10%);
+
+  animation: modal-enter 150ms ease-out;
+  overflow-y: auto;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.track-event-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.track-event-modal__player {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+.track-event-modal__number {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.track-event-modal__name {
+  margin: 0;
+
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.track-event-modal__hint {
+  display: block;
+
+  margin-top: 0.15rem;
+
+  color: #657087;
+
+  font-size: 0.8rem;
+}
+
+.modal-close {
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  color: #64748b;
+  background: #f1f5f9;
+
+  border: 0;
+  border-radius: 50%;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #172033;
+  background: #e2e8f0;
+}
+
+.modal-close:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 25%);
+  outline-offset: 2px;
+}
+
+.event-grid__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.3rem;
+
+  padding: 0.8rem;
+
+  color: #172033;
+  background: #ffffff;
+
+  border: 2px solid #dce1e8;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 80ms ease,
+    box-shadow 120ms ease;
+}

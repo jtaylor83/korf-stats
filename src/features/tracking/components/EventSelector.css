@@ -1,0 +1,92 @@
+.player-selector {
+  margin-top: 1.5rem;
+}
+
+.player-selector__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  margin-bottom: 0.75rem;
+}
+
+.player-selector h2 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #657087;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 0.75rem;
+}
+
+.player-card {
+  min-height: 90px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.3rem;
+
+  padding: 0.8rem;
+
+  color: #172033;
+  background: #ffffff;
+
+  border: 2px solid #dce1e8;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 80ms ease,
+    box-shadow 120ms ease;
+}
+
+.player-card:hover {
+  border-color: #93b4f5;
+}
+
+.player-card:active {
+  transform: scale(0.97);
+}
+
+.player-card:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 25%);
+  outline-offset: 2px;
+}
+
+.player-card--selected {
+  color: #123f9c;
+  background: #e8f0ff;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 2px rgb(37 99 235 / 8%);
+}
+
+.player-card__number {
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.player-card__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  max-width: 100%;
+}

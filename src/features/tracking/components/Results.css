@@ -1,0 +1,33 @@
+.results table {
+    border-style: 1px solid #dce1e8;
+    border-width: 1px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.results th {
+    border-style: 1px solid #dce1e8;
+    border-width: 1px;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #657087;
+    background-color: #f1f5f9;
+}
+
+.results td {
+    border-style: 1px solid #dce1e8;
+    border-width: 1px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: #172033;
+}
+
+.results tr:nth-child(even) {
+    background-color: #7e86e0;
+}
+
+.results tr:nth-child(odd) {
+    background-color: #ebe485;
+}
