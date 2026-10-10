@@ -9,19 +9,28 @@ import { goalTypes } from "../data/events";
 export function TrackEvent({players, eventType, setEventsList, unselectPlayer, minutes, seconds}: Readonly<{players: Player[]; eventType: EventType; setEventsList: React.Dispatch<React.SetStateAction<MatchEvent[]>>; unselectPlayer: () => void; minutes: number; seconds: number}>) {
 
     const [playerId, setPlayerId] = useState<PlayerId>();
-    const [goalType, setGoalType] = useState<GoalType>();
 
-    const handleEventSubmit = () => {
-        if (!playerId || (eventType === 'goal' && !goalType)) {
-            alert('Please select a player and goal type.');
+    const handlePlayerSelect = (id: PlayerId) => {
+        setPlayerId(id);
+        if (eventType !== 'goal') {
+            handleEventSubmit(id)
+        }
+    }
+
+    const handleGoalSelect = (eventId: GoalType) => {
+        handleEventSubmit(playerId, eventId)
+    }
+
+    const handleEventSubmit = (player_id: PlayerId | undefined, goal_type?: GoalType) => {
+        if (!player_id) {
             return;
         }
 
         const newEvent = {
             id: '1',
             type: eventType,
-            playerId: playerId,
-            goalType: goalType,
+            playerId: player_id,
+            goalType: goal_type,
             timestamp: minutes * 60 + seconds,
         }
         setEventsList(prevEvents => [...prevEvents, newEvent]);
@@ -54,16 +63,14 @@ export function TrackEvent({players, eventType, setEventsList, unselectPlayer, m
                 </header>
 
                 <div className="event-grid">
-                <PlayerSelector players={players} selectedPlayerId={playerId} onSelect={(id) =>setPlayerId(id)} />
+                {!playerId && <PlayerSelector players={players} selectedPlayerId={playerId} onSelect={handlePlayerSelect} />}
 
-                {eventType === 'goal' && (
-                    <EventSelector events={goalTypes} onSelect={(eventId) => setGoalType(eventId)} highlightOnSelect={true} />
+                {eventType === 'goal' && playerId && (
+                    <EventSelector events={goalTypes} onSelect={handleGoalSelect} highlightOnSelect={true} />
                 )}
                 
                 </div>
-                <button onClick={() => handleEventSubmit()} className="event-grid__button" type="button">
-                        Submit
-                </button>
+                
             </div>
         </div>
     );

@@ -21,10 +21,16 @@ export function Tracker({ match, minutes, seconds, team, handleEndMatch }: Reado
     const selectedEvent: EventType | undefined = events.find(
         event => event === selectedEventId
     );
+
+    const undoEvent = () => {
+        setEventsList(eventsList.slice(0,eventsList.length-1))
+    }
+
     return (
         <div>
         <h2>{match.team} VS {match.opponent}</h2>
         <h3>Date: {match.date.toDateString()}</h3>
+        <button onClick={undoEvent}>undo</button><br/>
         <EventSelector events={events}  onSelect={handleSelectEvent} />
             {selectedEvent ? (
             <p>
@@ -35,6 +41,7 @@ export function Tracker({ match, minutes, seconds, team, handleEndMatch }: Reado
             <p>Select an event to record.</p>
             )}
         <DisplayEvents events={eventsList} players={players} />
+        
         <button onClick={() => handleEndMatch(eventsList)}>End Match</button>
         </div>
     );

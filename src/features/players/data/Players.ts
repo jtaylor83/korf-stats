@@ -40,7 +40,24 @@ export const players_dundee_1: Player[] = [
     id: '8',
     name: 'Ben',
     number: 21,
-  }
+  },
+  {
+    id: '9',
+    name: 'Fiona',
+    number: 13
+  },
+  {
+    id: '10',
+    name: 'Cara',
+    number: 25
+  },
+  
+  {
+    id: '11',
+    name: 'Fred',
+    number: 99
+  },
+
 ];
 
 export const players_dundee_2: Player[] = [
