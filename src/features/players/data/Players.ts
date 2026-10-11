@@ -78,7 +78,7 @@ export const players_dundee_2: Player[] = [
   },
   {
     id: '4',
-    name: 'Paul',
+    name: 'Cara',
     number: 11,
   },
   {
